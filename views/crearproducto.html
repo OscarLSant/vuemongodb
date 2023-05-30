@@ -22,27 +22,19 @@
   <div id="app">
 
     <div>
-      <a href="crearproducto.html">
-        <button type="button" class="btn btn-primary">Crear Producto</button>
-      </a>
+      <a href="productos.html">
+        <button type="button" class="btn btn-danger ">Regresar</button>
+      </a><br><br>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">NOMBRE</th>
-            <th scope="col">PRECIO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="producto in productos">
-            <th scope="row">{{ producto._id }}</th>
-            <td>{{ producto.nombre }}</td>
-            <td>${{ producto.precio }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <form @submit.prevent="envioFormulario">
+
+        <label for="" class="form-label">Nombre del producto:</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" v-model="nombre">
+        <label for="" class="form-label">Precio del producto:</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" v-model="precio"><br><br>
+        <button type="submit" class="btn btn-success">Guardar</button>
+
+      </form>
 
   </div>
 
@@ -59,6 +51,7 @@
       apiREST.productos = response.data;
     });
   </script>
+
 </body>
 
 </html>
